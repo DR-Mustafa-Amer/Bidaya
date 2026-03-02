@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مركز بداية للعلاج الطبيعي</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-image: url('https://files.catbox.moe/il39rs.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #e0e0e0;
+      line-height: 1.6;
+      direction: rtl;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 20, 30, 0.8);
+      z-index: -1;
+    }
+
+    :root {
+      --primary-sky: #4fa3d0;
+      --dark-sky: #1a4f73;
+      --light-sky: #88c6f0;
+      --gold: #ffdb9d;
+      --card-bg: rgba(20, 50, 75, 0.7);
+      --border-glow: 0 0 20px rgba(79, 163, 208, 0.6);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(145deg, #0f2638, #071018);
+      padding: 20px 0;
+      border-bottom: 2px solid var(--primary-sky);
+      box-shadow: 0 0 30px rgba(42, 95, 122, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--primary-sky);
+      box-shadow: 0 0 40px var(--primary-sky);
+      overflow: hidden;
+    }
+
+    .logo-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .site-title h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ffffff, var(--light-sky));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px var(--primary-sky);
+    }
+
+    .site-title p {
+      color: var(--light-sky);
+      font-size: 1rem;
+      border-right: 3px solid var(--primary-sky);
+      padding-right: 12px;
+    }
+
+    /* Hero Section - متكامل مع النصوص الجديدة */
+    .hero {
+      padding: 70px 0;
+      background: radial-gradient(circle at 70% 30%, #1a405a, #0a1420 80%);
+      border-bottom: 1px solid var(--primary-sky);
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 15px;
+      text-shadow: 0 0 20px var(--primary-sky);
+      line-height: 1.4;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 25px;
+      text-shadow: 0 0 15px var(--dark-sky);
+      line-height: 1.4;
+    }
+
+    .hero-description {
+      font-size: 1.3rem;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      padding: 25px 35px;
+      border-radius: 60px;
+      border: 1px solid var(--primary-sky);
+      box-shadow: var(--border-glow);
+      margin-bottom: 35px;
+      color: #f0f8ff;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 40px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.3rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #1b4c70;
+      color: white;
+      border: 2px solid var(--primary-sky);
+      box-shadow: 0 0 30px var(--primary-sky);
+    }
+
+    .btn-primary:hover {
+      background: #266b99;
+      box-shadow: 0 0 50px var(--light-sky);
+      transform: scale(1.05);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 20px rgba(255, 219, 157, 0.3);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 219, 157, 0.1);
+      box-shadow: 0 0 40px var(--gold);
+      transform: scale(1.05);
+    }
+
+    /* Booking Main Button */
+    .booking-main-btn {
+      text-align: center;
+      padding: 30px 0;
+      background: #0a1f30;
+    }
+    
+    .btn-booking {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      background: linear-gradient(145deg, #1f5280, #0f3a5c);
+      color: white;
+      text-decoration: none;
+      padding: 22px 70px;
+      border-radius: 60px;
+      font-size: 2rem;
+      font-weight: 700;
+      border: 2px solid var(--primary-sky);
+      box-shadow: 0 0 40px var(--primary-sky);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    
+    .btn-booking:hover {
+      background: #2d74b0;
+      box-shadow: 0 0 70px var(--light-sky);
+      transform: scale(1.05) translateY(-5px);
+    }
+
+    /* Booking Section (Dropdown) */
+    .booking-section {
+      background: #0e2638;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.8s ease-out;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .booking-section.show {
+      padding: 40px 0;
+      max-height: 500px;
+      border-bottom: 2px solid var(--primary-sky);
+    }
+    
+    .booking-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    
+    .booking-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+    
+    .booking-icon:hover {
+      transform: translateY(-10px);
+    }
+    
+    .booking-icon .icon-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #124566;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--primary-sky);
+      box-shadow: 0 0 30px var(--primary-sky);
+      transition: 0.3s;
+    }
+    
+    .booking-icon:hover .icon-circle {
+      background: #1f6090;
+      border-color: var(--gold);
+      box-shadow: 0 0 50px var(--light-sky);
+    }
+    
+    .booking-icon i {
+      font-size: 3.5rem;
+    }
+    
+    .booking-icon .fa-whatsapp { color: #25d366; }
+    .booking-icon .fa-phone-alt { color: var(--light-sky); }
+    
+    .booking-icon span {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* Doctor Strip */
+    .doctor-strip {
+      background: #0f2940;
+      padding: 20px 0;
+      border-top: 2px solid var(--primary-sky);
+      border-bottom: 2px solid #1f5375;
+    }
+    
+    .doctor-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
+    
+    .doctor-name-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #153e5e;
+      padding: 15px 40px;
+      border-radius: 60px;
+      border: 2px solid var(--primary-sky);
+      box-shadow: 0 0 25px var(--primary-sky);
+    }
+    
+    .doctor-name-box i {
+      font-size: 2.5rem;
+      color: var(--gold);
+    }
+    
+    .doctor-name-box span {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: white;
+    }
+    
+    .doctor-icons {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .doctor-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #124566;
+      border: 2px solid var(--primary-sky);
+      box-shadow: 0 0 25px var(--primary-sky);
+      transition: 0.3s;
+      text-decoration: none;
+      position: relative;
+    }
+    
+    .doctor-icon:hover {
+      background: #1f6090;
+      transform: scale(1.1) rotate(5deg);
+      border-color: var(--gold);
+      box-shadow: 0 0 40px var(--light-sky);
+    }
+    
+    .doctor-icon i {
+      font-size: 2.2rem;
+    }
+    
+    .doctor-icon .fa-whatsapp { color: #25d366; }
+    .doctor-icon .fa-phone-alt { color: var(--light-sky); }
+
+    /* Sections */
+    section {
+      padding: 70px 0;
+      border-bottom: 1px solid #234b66;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 0 15px var(--primary-sky);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-bottom: 2px solid var(--primary-sky);
+      padding-bottom: 15px;
+    }
+
+    .section-title i {
+      color: var(--gold);
+      font-size: 2.5rem;
+    }
+
+    /* About Doctor Card - تنسيق رائع */
+    .doctor-profile {
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      padding: 50px;
+      border-radius: 60px;
+      border: 1px solid var(--primary-sky);
+      box-shadow: 0 0 60px rgba(79, 163, 208, 0.4);
+    }
+
+    .doctor-header {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .doctor-avatar {
+      width: 150px;
+      height: 150px;
+      background: #153e5c;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 50px var(--primary-sky);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .doctor-avatar span {
+      font-size: 70px;
+    }
+
+    .doctor-title h3 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .doctor-title p {
+      font-size: 1.3rem;
+      color: var(--light-sky);
+    }
+
+    .doctor-bio {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 30px;
+      border-right: 4px solid var(--gold);
+    }
+
+    .doctor-quote {
+      font-size: 1.6rem;
+      color: var(--gold);
+      text-align: center;
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(79, 163, 208, 0.1);
+      border-radius: 60px;
+      font-weight: 600;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .principle-card {
+      background: #1a3f5a;
+      padding: 20px;
+      border-radius: 40px;
+      border: 1px solid var(--primary-sky);
+      box-shadow: 0 0 20px rgba(79, 163, 208, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: 0.3s;
+    }
+
+    .principle-card:hover {
+      transform: translateX(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 0 30px var(--primary-sky);
+    }
+
+    .principle-card i {
+      font-size: 2rem;
+      color: var(--gold);
+    }
+
+    .principle-card p {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* Center Info Card */
+    .center-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      padding: 50px;
+      border-radius: 60px;
+      border: 1px solid var(--primary-sky);
+      box-shadow: 0 0 60px rgba(79, 163, 208, 0.4);
+    }
+
+    .center-card h3 {
+      font-size: 2.2rem;
+      color: white;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .service-item-card {
+      background: #1a3f5a;
+      padding: 15px 25px;
+      border-radius: 50px;
+      border: 1px solid var(--primary-sky);
+      box-shadow: 0 0 15px rgba(79, 163, 208, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: 0.3s;
+    }
+
+    .service-item-card:hover {
+      transform: scale(1.02);
+      border-color: var(--gold);
+      box-shadow: 0 0 25px var(--primary-sky);
+    }
+
+    .service-item-card i {
+      color: var(--gold);
+      font-size: 1.3rem;
+    }
+
+    .center-footer {
+      margin-top: 30px;
+      padding: 20px;
+      background: #0f2a40;
+      border-radius: 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      border: 1px dashed var(--primary-sky);
+    }
+
+    /* Services Categories */
+    .services-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .category-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      border-radius: 50px;
+      border: 1px solid var(--primary-sky);
+      box-shadow: 0 0 40px rgba(79, 163, 208, 0.3);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      border-bottom: 2px solid var(--primary-sky);
+      padding-bottom: 15px;
+    }
+
+    .category-header i {
+      font-size: 2.2rem;
+      color: var(--gold);
+    }
+
+    .category-header h3 {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .category-items {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: #1a3f5a;
+      border-radius: 40px;
+      border: 1px solid var(--primary-sky);
+      transition: 0.3s;
+    }
+
+    .category-item:hover {
+      background: #1f4f70;
+      border-color: var(--gold);
+      transform: translateX(-5px);
+    }
+
+    .category-item i {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 30px 0;
+      color: #9abde0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-flex">
+      <div class="logo-area">
+        <div class="logo-img">
+          <img src="https://files.catbox.moe/7botvb.jpg" alt="Dr. Mustafa Amer" onerror="this.src='https://via.placeholder.com/80x80/1a3347/4fa3d0?text=Dr.Mustafa'">
+        </div>
+        <div class="site-title">
+          <h1>مركز بداية للعلاج الطبيعي</h1>
+          <p>Bidayā Center | د. مصطفى عامر <i class="fas fa-flag-eg" style="color: #ffdb9d;"></i></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section مع النصوص المطلوبة -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>مركز بداية للعلاج الطبيعي والتغذية العلاجية</h1>
+      <h2>رحلة علاجك تبدأ بخطوة صح…<br>وتكمل بنتيجة حقيقية.</h2>
+      <div class="hero-description">
+        نقدم برامج علاج طبيعي متخصصة، وتأهيل إصابات، وأنظمة تغذية علاجية مبنية على تقييم علمي دقيق.
+      </div>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary" id="bookingTrigger"><i class="fas fa-calendar-check"></i> احجز الآن</a>
+        <a href="#" class="btn btn-outline"><i class="fas fa-headset"></i> تواصل معنا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Dropdown Section -->
+  <div class="booking-section" id="bookingSection">
+    <div class="container">
+      <h3 style="color: #ffdb9d; text-align: center; margin-bottom: 30px; font-size: 2rem;">📞 تواصل معنا للحجز</h3>
+      <div class="booking-icons">
+        <a href="https://wa.me/201032068571" class="booking-icon" target="_blank">
+          <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
+          <span>واتساب حجز 1</span>
+        </a>
+        <a href="https://wa.me/201050363055" class="booking-icon" target="_blank">
+          <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
+          <span>واتساب حجز 2</span>
+        </a>
+        <a href="tel:+201032068571" class="booking-icon">
+          <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+          <span>اتصال حجز 1</span>
+        </a>
+        <a href="tel:+201050363055" class="booking-icon">
+          <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+          <span>اتصال حجز 2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Doctor Strip (أيقونتين فقط) -->
+  <div class="doctor-strip">
+    <div class="container doctor-flex">
+      <div class="doctor-name-box">
+        <i class="fas fa-user-md"></i>
+        <span>د. مصطفى عامر</span>
+        <i class="fas fa-flag-eg" style="color: #ffdb9d;"></i>
+      </div>
+      <div class="doctor-icons">
+        <a href="https://wa.me/201099015874" class="doctor-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+201099015874" class="doctor-icon"><i class="fas fa-phone-alt"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- صفحة "نبذة عني" -->
+  <section>
+    <div class="container">
+      <div class="section-title"><i class="fas fa-user-md"></i> نبذة عني</div>
+      <div class="doctor-profile">
+        <div class="doctor-header">
+          <div class="doctor-avatar">
+            <span>👨🏻‍⚕️</span>
+          </div>
+          <div class="doctor-title">
+            <h3>د. مصطفى عامر</h3>
+            <p>أخصائي العلاج الطبيعي والتغذية العلاجية</p>
+          </div>
+        </div>
+        
+        <div class="doctor-bio">
+          <p>أنا دكتور مصطفى عامر، أعمل في مجال العلاج الطبيعي والتأهيل الطبي، مع خبرة أكثر من ٦ سنوات في علاج إصابات الملاعب، مشاكل العمود الفقري، تأهيل ما بعد الكسور والعمليات، بالإضافة إلى إعداد برامج تغذية علاجية مخصصة لكل حالة.</p>
+        </div>
+        
+        <div class="doctor-quote">
+          <i class="fas fa-quote-right"></i> هدفي مش مجرد تسكين ألم… هدفي إنك ترجع تمارس حياتك بشكل طبيعي وأقوى من الأول.
+        </div>
+        
+        <p style="font-size: 1.3rem; color: var(--light-sky); margin-bottom: 20px; text-align: center;">نؤمن في مركز بداية إن:</p>
+        
+        <div class="principles-grid">
+          <div class="principle-card">
+            <i class="fas fa-check-circle"></i>
+            <p>التقييم الدقيق هو نصف العلاج</p>
+          </div>
+          <div class="principle-card">
+            <i class="fas fa-check-circle"></i>
+            <p>التمرين الصح أهم من الأجهزة</p>
+          </div>
+          <div class="principle-card">
+            <i class="fas fa-check-circle"></i>
+            <p>المتابعة المستمرة هي سر النجاح</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- صفحة "عن مركز بداية" -->
+  <section>
+    <div class="container">
+      <div class="section-title"><i class="fas fa-clinic-medical"></i> عن مركز بداية</div>
+      <div class="center-card">
+        <h3>مركز بداية للعلاج الطبيعي والتغذية العلاجية</h3>
+        <p style="font-size: 1.3rem; color: var(--light-sky); margin-bottom: 25px; text-align: center;">مركز متخصص في:</p>
+        
+        <div class="services-grid">
+          <div class="service-item-card"><i class="fas fa-chevron-left"></i> علاج آلام العمود الفقري والانزلاق الغضروفي</div>
+          <div class="service-item-card"><i class="fas fa-chevron-left"></i> إصابات الكتف (تمزق أوتار – Frozen shoulder)</div>
+          <div class="service-item-card"><i class="fas fa-chevron-left"></i> تأهيل بعد الكسور والعمليات</div>
+          <div class="service-item-card"><i class="fas fa-chevron-left"></i> خشونة الركبة</div>
+          <div class="service-item-card"><i class="fas fa-chevron-left"></i> إصابات الملاعب</div>
+          <div class="service-item-card"><i class="fas fa-chevron-left"></i> برامج التخسيس وزيادة الوزن بطريقة صحية</div>
+        </div>
+        
+        <div class="center-footer">
+          <i class="fas fa-star" style="color: var(--gold);"></i> نستخدم أحدث أساليب العلاج الطبيعي المعتمدة عالميًا، مع خطط علاج فردية تناسب كل حالة.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- صفحة "خدماتنا" مقسمة بشكل رائع -->
+  <section>
+    <div class="container">
+      <div class="section-title"><i class="fas fa-star-of-life"></i> خدماتنا</div>
+      
+      <div class="services-categories">
+        <!-- العلاج الطبيعي -->
+        <div class="category-card">
+          <div class="category-header">
+            <i class="fas fa-dumbbell"></i>
+            <h3>العلاج الطبيعي</h3>
+          </div>
+          <div class="category-items">
+            <div class="category-item"><i class="fas fa-bolt"></i> تأهيل بعد الجراحة</div>
+            <div class="category-item"><i class="fas fa-bolt"></i> علاج الغضروف القطني والرقبي</div>
+            <div class="category-item"><i class="fas fa-bolt"></i> إصابات الأربطة والتمزقات العضلية</div>
+            <div class="category-item"><i class="fas fa-bolt"></i> علاج آلام الرقبة والكتف</div>
+          </div>
+        </div>
+        
+        <!-- إصابات الملاعب -->
+        <div class="category-card">
+          <div class="category-header">
+            <i class="fas fa-futbol"></i>
+            <h3>إصابات الملاعب</h3>
+          </div>
+          <div class="category-items">
+            <div class="category-item"><i class="fas fa-bolt"></i> تأهيل قبل الرجوع للملاعب</div>
+            <div class="category-item"><i class="fas fa-bolt"></i> تقوية وقائية للرياضيين</div>
+          </div>
+        </div>
+        
+        <!-- التغذية العلاجية -->
+        <div class="category-card">
+          <div class="category-header">
+            <i class="fas fa-apple-alt"></i>
+            <h3>التغذية العلاجية</h3>
+          </div>
+          <div class="category-items">
+            <div class="category-item"><i class="fas fa-bolt"></i> تخسيس دهون بدون حرمان</div>
+            <div class="category-item"><i class="fas fa-bolt"></i> زيادة وزن صحي</div>
+            <div class="category-item"><i class="fas fa-bolt"></i> تغذية لمرضى السكر والضغط</div>
+            <div class="category-item"><i class="fas fa-bolt"></i> برامج تغذية للرياضيين</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-note">
+    <div class="container">
+      <p>مركز بداية للعلاج الطبيعي والتغذية العلاجية – د. مصطفى عامر <i class="fas fa-flag-eg" style="color: #ffdb9d;"></i></p>
+      <p style="margin-top: 10px; color: #88b9e0;">📍 جميع الحقوق محفوظة © 2025</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('bookingTrigger').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('bookingSection').classList.toggle('show');
+      setTimeout(function() {
+        document.getElementById('bookingSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    });
+  </script>
+</body>
+</html>
